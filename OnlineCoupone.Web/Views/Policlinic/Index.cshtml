@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Поликлиника # @ViewBag.PoliclinicId</h2>
+
+<p>Тут сделай красивые два пункта: заказ талона и мои талоны</p>
+
+<div class="col-sm-4 col-sm-offset-2">
+    <a href="@Url.Action("Index", "TalonOrder", new {policlinicId = ViewBag.PoliclinicId})">Заказ талона</a>
+</div>
+<div class="col-sm-4 col-sm-offset-2">
+    <a href="@Url.Action("Index", "MyTalon", new { policlinicId = ViewBag.PoliclinicId })">Мои талоны</a>
+</div>
+

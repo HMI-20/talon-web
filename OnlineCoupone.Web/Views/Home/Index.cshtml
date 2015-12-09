@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Главная страница";
+}
+
+<div class="jumbotron">
+    <h1>Online заказ талонов</h1>
+    <p class="lead">Вы можете заказать какой угодно талон совершенно бесплатно. Если хорошо попросите, еще и шлюху в подарок получите.</p>
+    <p><a href="/about" class="btn btn-primary btn-large">Узнать подробнее &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Выберите регион</h2>
+        <table class="table table-hover">
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 7 })">Минск</a>
+                </td>
+                <td>
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 1 })">Брест</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 2 })">Витебск</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 3 })">Гомель</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 4 })">Гродно</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 5 })">Минская</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Index", "Region", new { regionId = 6 })">Могилев</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

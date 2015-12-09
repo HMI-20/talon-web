@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "OrderStep2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+    @for (var i = 0; i < ViewBag.Dates.Count; i++)
+    {
+        <li class="talonDate" id="@(((DateTime)ViewBag.Dates[i]).ToShortDateString())">
+            @(((DateTime)ViewBag.Dates[i]).ToShortDateString())
+        </li>
+    }
+</ul>
+
+<script>
+    $(document).ready(function () {
+        $(".talonDate").click(function () {
+            window.location = '/talonorder/orderstep3?date=' + JSON.stringify($(this).attr('id'));
+        });
+    })
+</script>
+

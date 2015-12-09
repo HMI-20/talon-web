@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "OrderStep3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+    @for (var i = 0; i < ViewBag.Times.Count; i++)
+    {
+        <li class="talonTime" id="@((ViewBag.Times[i]))">
+            @((ViewBag.Times[i]))
+        </li>
+    }
+</ul>
+
