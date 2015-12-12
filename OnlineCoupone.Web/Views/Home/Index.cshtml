@@ -2,46 +2,46 @@
     ViewBag.Title = "Главная страница";
 }
 
-<div class="jumbotron">
-    <h1>Online заказ талонов</h1>
-    <p class="lead">Вы можете заказать какой угодно талон совершенно бесплатно. Если хорошо попросите, еще и шлюху в подарок получите.</p>
-    <p><a href="/about" class="btn btn-primary btn-large">Узнать подробнее &raquo;</a></p>
+<div class="jumbotron green">
+    <h2>Online заказ талонов</h2>
+    <p class="lead">Вы можете заказать какой угодно талон совершенно бесплатно.</p>
+    <p><a href="/about" class="btn blue btn-large">Узнать подробнее &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>Выберите регион</h2>
-        <table class="table table-hover">
+        <table class="table orange">
             <tr>
                 <td>
                     
                 </td>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 7 })">Минск</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 7 })">Минск</a>
                 </td>
                 <td>
                 </td> 
             </tr>
             <tr>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 1 })">Брест</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 1 })">Брестская обл.</a>
                 </td>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 2 })">Витебск</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 2 })">Витебская обл.</a>
                 </td>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 3 })">Гомель</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 3 })">Гомельская обл.</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 4 })">Гродно</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 4 })">Гродненская обл.</a>
                 </td>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 5 })">Минская</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 5 })">Минская обл.</a>
                 </td>
                 <td>
-                    <a href="@Url.Action("Index", "Region", new { regionId = 6 })">Могилев</a>
+                    <a class="lead" href="@Url.Action("Index", "Region", new { regionId = 6 })">Могилевская обл.</a>
                 </td>
             </tr>
         </table>

@@ -40,3 +40,49 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.blue {
+    opacity: .8;
+    background-color: #336371;
+    border: none;
+    color: #eee;
+}
+
+.blue a {
+    color: #eee;
+}
+
+.blue a:hover {
+    color: #336371;
+}
+
+a.navbar-brand:hover {
+    color: #eee;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #f2f3c9;
+}
+
+.green {
+    background-color: #93af56;
+    opacity: .8;
+}
+
+.jumbotron.green {
+    max-height: 300px;
+}
+
+.orange {
+    background-color: #f0d587;
+}
+
+table.orange {
+    text-align: center;
+    border: none;
+}
+
+table.orange a {
+    color: #222;
+}
