@@ -86,3 +86,16 @@ table.orange {
 table.orange a {
     color: #222;
 }
+
+.flex-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.flex-list > * {
+    display: block;
+    list-style: none;
+    padding: 20px;
+}
