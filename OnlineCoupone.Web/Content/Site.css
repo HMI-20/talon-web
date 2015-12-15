@@ -130,6 +130,7 @@ table.orange a {
     display: inline-block;
     width: 300px;
     max-width: 25%;
+    font-size: 1.25em;
 }
 
 .polyclinic-action * {
