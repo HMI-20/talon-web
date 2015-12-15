@@ -1,4 +1,10 @@
-﻿body {
+﻿* {
+    padding: 0;
+    margin: 0;
+    color: #000;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -88,14 +94,44 @@ table.orange a {
 }
 
 .flex-list {
-    display: flex;
+    max-width: 80%;
+    margin: 0;
+    display: inline-flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: center;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flex-list * {
+    color: #000;
 }
 
 .flex-list > * {
+    border: 1px dashed #333;
     display: block;
     list-style: none;
-    padding: 20px;
+    padding: 25px;
+    font-size: 1.25em;
+}
+
+.polyclinic-action-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.polyclinic-action {
+    text-align: left;
+    padding: 15px 20px;
+    margin: 0 15px;
+    display: inline-block;
+    width: 300px;
+    max-width: 25%;
+}
+
+.polyclinic-action * {
+    color: #000;
 }

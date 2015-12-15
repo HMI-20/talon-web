@@ -5,13 +5,15 @@
 }
 
 <h2>Поликлиника # @ViewBag.PoliclinicId</h2>
-
-<p>Тут сделай красивые два пункта: заказ талона и мои талоны</p>
-
-<div class="col-sm-4 col-sm-offset-2">
+<div class="polyclinic-action-container">
+<div class="polyclinic-action green">
     <a href="@Url.Action("Index", "TalonOrder", new {policlinicId = ViewBag.PoliclinicId})">Заказ талона</a>
 </div>
-<div class="col-sm-4 col-sm-offset-2">
+<div class="polyclinic-action green">
+    <a href="@Url.Action("Index", "TalonOrder", new {policlinicId = ViewBag.PoliclinicId})">Вызов врача на дом</a>
+</div>
+<div class="polyclinic-action green">
     <a href="@Url.Action("Index", "MyTalon", new { policlinicId = ViewBag.PoliclinicId })">Мои талоны</a>
+</div>
 </div>
 
