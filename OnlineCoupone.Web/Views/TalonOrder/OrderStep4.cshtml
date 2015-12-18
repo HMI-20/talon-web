@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "OrderStep4";
+}
+
+<h2>OrderStep4</h2>
+<div id="patient_form" class="container">
+    <div class="form-group col-sm-12">
+        <label for="" class="col-sm-3 control-label">
+            Last name*
+        </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" value="" id="lastName" required="required" />
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <label for="" class="col-sm-3 control-label">
+            Name*
+        </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" value="" id="name" required="required" />
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <label for="" class="col-sm-3 control-label">
+            Patronymic*
+        </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" value="" id="patronymic" required="required" />
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <label for="" class="col-sm-3 control-label">
+            Birthday*
+        </label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" value="" id="birthday" required="required" />
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <label for="" class="col-sm-3 control-label">
+            Address*
+        </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" value="" id="address" required="required" />
+        </div>
+    </div>
+    <div class="form-group col-sm-5">
+        <button id="continue" class="btn btn-primary">Continue</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#continue').click(function () {
+            debugger;
+            var patient = {};
+            patient.LastName = $("#lastName").val();
+            patient.Name = $("#name").val();
+            patient.Patronymic = $("#patronymic").val();
+            patient.DateOfBirthday = $("#birthday").val();
+            patient.Address = $("#address").val();
+            $.ajax({
+                type: 'POST',
+                url: '/Validate/ValidateOrder',
+                data: JSON.stringify({ 'order': patient }),
+                contentType: 'application/json',
+                success: function (result) {
+                    if (result == 'False') {
+                        alert("СОСИ");
+                    } else {
+                        window.location = '/talonorder/orderstep5?orderId=' + result;
+                    }
+                },
+                error: function (error) {
+
+                }
+            });
+        });
+    });
+</script>
+
+

@@ -13,3 +13,10 @@
     }
 </ul>
 
+<script>
+    $(document).ready(function () {
+        $(".talonTime").click(function () {
+            window.location = '/talonorder/orderstep4?date=@ViewBag.Date&specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&time=' + JSON.stringify($(this).attr('id'));
+        });
+    })
+</script>

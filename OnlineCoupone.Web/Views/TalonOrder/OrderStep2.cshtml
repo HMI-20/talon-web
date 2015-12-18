@@ -16,7 +16,7 @@
 <script>
     $(document).ready(function () {
         $(".talonDate").click(function () {
-            window.location = '/talonorder/orderstep3?date=' + JSON.stringify($(this).attr('id'));
+            window.location = '/talonorder/orderstep3?specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&date=' + JSON.stringify($(this).attr('id'));
         });
     })
 </script>

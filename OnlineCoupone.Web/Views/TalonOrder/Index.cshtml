@@ -15,23 +15,9 @@
     <p class="specialization" id="1">Ортопед</p>
     <p class="specialization" id="2">Педиатр</p>
 </div>
-<div id="step1" style="display: none;" class="stepDiv">
-    1
-</div>
-<div id="step2" style="display: none;" class="stepDiv">
-    2
-</div>
-<div id="step3" style="display: none;" class="stepDiv">
-    3
-</div>
-<div id="step4" style="display: none;" class="stepDiv">
-    4
-</div>
-<div id="step5" style="display: none;" class="stepDiv">
-    5
-</div>
 
-<script>
+
+@*<script>
     $(document).ready(function() {
         var stepId = 0;
         $("#backButton").click(function() {
@@ -100,5 +86,11 @@
             $("#step" + stepId).show();
         }
     });
-</script>
+</script>*@
 
+
+<script>
+    $(".specialization").click(function () {
+        window.location = '/talonorder/orderstep1?specializationId=' + $(this).attr("id") + '&policlinicId=@ViewBag.PoliclinicId';
+    });
+</script>

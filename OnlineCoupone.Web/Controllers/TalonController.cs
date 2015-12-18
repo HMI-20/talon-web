@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OnlineCoupone.Web.Models;
+using OnlineCoupone.Web.Models.API;
 
 namespace OnlineCoupone.Web.Controllers
 {

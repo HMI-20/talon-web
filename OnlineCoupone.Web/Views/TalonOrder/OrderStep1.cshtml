@@ -1,24 +1,19 @@
-﻿<ul>
+﻿@{
+    ViewBag.Title = "OrderStep2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<ul>
     @for (var i = 0; i < ViewBag.Doctors.Count; i++)
     {
-        <li class="doctor" id="@ViewBag.Doctors[i].DoctorId">
-            @ViewBag.Doctors[i].Fio
+        <li class="doctor" id="@((ViewBag.Doctors[i].DoctorId))">
+            @((ViewBag.Doctors[i].Fio))
         </li>
     }
 </ul>
-
 <script>
-    $(".doctor").click(function () {
-        $.ajax({
-            type: "GET",
-            url: '/TalonOrder/OrderStep2?doctorId=' + $(this).attr("id") + '&policlinicId=' + $("#policlinicId").val(),
-            success: function (result) {
-                displayStepBody(result);
-                incrementStep();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-
-            }
+    $(document).ready(function () {
+        $(".doctor").click(function () {
+            window.location = '/talonorder/orderstep2?specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=' + $(this).attr('id');
         });
-    });
+    })
 </script>

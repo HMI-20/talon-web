@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,10 +40,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -133,12 +141,24 @@
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\TalonController.cs" />
     <Compile Include="Controllers\TalonOrderController.cs" />
+    <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\Talon.cs" />
+    <Compile Include="Models\API\Action.cs" />
+    <Compile Include="Models\API\ActionType.cs" />
+    <Compile Include="Models\API\Policlinic.cs" />
+    <Compile Include="Models\API\Doctor.cs" />
+    <Compile Include="Models\API\Patient.cs" />
+    <Compile Include="Models\API\Speciality.cs" />
+    <Compile Include="Models\API\Talon.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DoctorRepository.cs" />
+    <Compile Include="Repository\PatientRepository.cs" />
+    <Compile Include="Repository\PoliclinicRepository.cs" />
+    <Compile Include="Repository\SpecialityRepository.cs" />
+    <Compile Include="Repository\TalonRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -178,11 +198,14 @@
     <Content Include="Views\TalonOrder\OrderStep1.cshtml" />
     <Content Include="Views\TalonOrder\OrderStep3.cshtml" />
     <Content Include="Views\TalonOrder\OrderStep2.cshtml" />
+    <Content Include="Views\TalonOrder\OrderStep4.cshtml" />
+    <Content Include="Views\TalonOrder\OrderStep5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Doctor\" />
     <Folder Include="Views\Talon\" />
+    <Folder Include="Views\Validate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
