@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<ul>
+<ul class="flex-list orange">
     @for (var i = 0; i < ViewBag.Dates.Count; i++)
     {
         <li class="talonDate" id="@(((DateTime)ViewBag.Dates[i]).ToShortDateString())">
@@ -16,7 +16,7 @@
 <script>
     $(document).ready(function () {
         $(".talonDate").click(function () {
-            window.location = '/talonorder/orderstep3?specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&date=' + JSON.stringify($(this).attr('id'));
+            window.location = '/talonorder/orderstep3?specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&date=' + $(this).attr('id');
         });
     })
 </script>

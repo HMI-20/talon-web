@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
+using OnlineCoupone.DAL.Repository;
 using OnlineCoupone.Web.Models;
 using OnlineCoupone.Web.Models.API;
 
@@ -14,49 +16,53 @@ namespace OnlineCoupone.Web.Controllers
         // GET: /TalonOrder/
         public ActionResult Index(int policlinicId)
         {
+            var repository = new Repository();
             ViewBag.PoliclinicId = policlinicId;
+            ViewBag.Specializations = repository.GetAllSpecializations();
             return View();
         }
 
         public ActionResult OrderStep1(int policlinicId, int specializationId)
         {
+            var repository = new Repository();
             ViewBag.PoliclinicId = policlinicId;
             ViewBag.SpecializationId = specializationId;
-            var avalibleDoctors = new List<Doctor>()
-            {
-                new Doctor() {DoctorId = 1, Fio = "Ivanova"},
-                new Doctor() {DoctorId = 2, Fio = "Petrova"},
-            };
+            var avalibleDoctors = repository.GetDoctorsBySpecializationId(specializationId);
             ViewBag.Doctors = avalibleDoctors;
             return View();
         }
 
         public ActionResult OrderStep2(int specializationId, int doctorId = -1, int policlinicId = -1)
         {
-            var avaliableDates = new List<DateTime>()
-            {
-                new DateTime(2015, 10, 23, 18, 40, 0),
-                new DateTime(2015, 10, 23, 19, 0, 0)
-            };
+            var repository = new Repository();
+            var avaliableDates = repository.GetAvailableTimesByDoctorId(doctorId).Where(t => t.Time > DateTime.Now).Select(t => t.Time);
             ViewBag.PoliclinicId = policlinicId;
             ViewBag.SpecializationId = specializationId;
             ViewBag.DoctorId = doctorId;
-            ViewBag.Dates = avaliableDates;
+            ViewBag.Dates = avaliableDates.DistinctBy(t => t.Date).ToList();
             return View();
         }
 
         public ActionResult OrderStep3(string date, int specializationId, int doctorId = -1, int policlinicId = -1)
         {
-            var availableTimes = new List<string>()
+            var repository = new Repository();
+            var availableTimes = repository.GetAvailableTimesByDoctorId(doctorId).Where(t => t.Time > DateTime.Now).Select(t => t.Time);
+            var toView = new Dictionary<int, List<DateTime>>();
+            var res = availableTimes.GroupBy(t => t.Hour);
+            foreach (var re in res)
             {
-                new DateTime(2015, 10, 10, 14, 10, 0).ToShortTimeString(),
-                new DateTime(2015, 10, 10, 14, 30, 0).ToShortTimeString()
-            };
+                var minutes = new List<DateTime>();
+                foreach (var minute in re)
+                {
+                    minutes.Add(minute);
+                }
+                toView.Add(re.Key, minutes);
+            }
             ViewBag.PoliclinicId = policlinicId;
             ViewBag.SpecializationId = specializationId;
             ViewBag.DoctorId = doctorId;
             ViewBag.Date = date;
-            ViewBag.Times = availableTimes;
+            ViewBag.Times = toView;
             return View();
         }
 

@@ -2,7 +2,7 @@
     ViewBag.Title = "OrderStep2";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<ul>
+<ul class="flex-list orange">
     @for (var i = 0; i < ViewBag.Doctors.Count; i++)
     {
         <li class="doctor" id="@((ViewBag.Doctors[i].DoctorId))">

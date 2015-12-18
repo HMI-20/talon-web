@@ -51,22 +51,22 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('#continue').click(function () {
+    $(document).ready(function() {
+        $('#continue').click(function() {
             debugger;
             var patient = {};
             patient.LastName = $("#lastName").val();
-            patient.Name = $("#name").val();
+            patient.FirstName = $("#name").val();
             patient.Patronymic = $("#patronymic").val();
-            patient.DateOfBirthday = $("#birthday").val();
+            patient.Birthday = $("#birthday").val();
             patient.Address = $("#address").val();
             $.ajax({
                 type: 'POST',
                 url: '/Validate/ValidateOrder',
-                data: JSON.stringify({ 'order': patient }),
+                data: JSON.stringify({ 'patient': patient, 'doctorId': '@ViewBag.DoctorId', 'date': '@ViewBag.Date', 'time': '@ViewBag.Time'}),
                 contentType: 'application/json',
                 success: function (result) {
-                    if (result == 'False') {
+                    if (result == '-1') {
                         alert("СОСИ");
                     } else {
                         window.location = '/talonorder/orderstep5?orderId=' + result;

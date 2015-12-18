@@ -5,11 +5,11 @@
 <h2 class="lead">Выберите поликлинику</h2>
 <h4>регион # @ViewBag.RegionId</h4>
 <ul class="flex-list orange">
-    <li>
-        <a href="@Url.Action("Index", "Policlinic", new {policlinicId = 1})">1-я поликлиника</a>
-    </li>
-    <li>
-        <a href="@Url.Action("Index", "Policlinic", new {policlinicId = 2})">2-я поликлиника</a>
-    </li>
+    @for (var i = 0; i < ViewBag.Policlinics.Count; i++)
+    {
+        <li>
+            <a href="@Url.Action("Index", "Policlinic", new {policlinicId = ViewBag.Policlinics[i].PoliclinicId})">@ViewBag.Policlinics[i].Title</a>
+        </li>
+    }
 </ul>
 

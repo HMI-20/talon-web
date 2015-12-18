@@ -1,22 +1,28 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "OrderStep3";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<ul>
-    @for (var i = 0; i < ViewBag.Times.Count; i++)
+<table class="table table-hover orange">
+    @foreach (var hour in (Dictionary<int, List<DateTime>>)ViewBag.Times)
     {
-        <li class="talonTime" id="@((ViewBag.Times[i]))">
-            @((ViewBag.Times[i]))
-        </li>
-    }
-</ul>
+        <th>
+            @(hour.Key)
+        </th>
 
+        foreach (var minute in hour.Value)
+        {
+            <td class="talonTime" id="@(minute.Hour):@(minute.Minute)">
+                @(minute.Hour):@(minute.Minute)
+            </td>
+        }
+
+    }
+
+</table>
 <script>
     $(document).ready(function () {
         $(".talonTime").click(function () {
-            window.location = '/talonorder/orderstep4?date=@ViewBag.Date&specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&time=' + JSON.stringify($(this).attr('id'));
+            window.location = '/talonorder/orderstep4?date=@ViewBag.Date&specializationId=@ViewBag.SpecializationId&policlinicId=@ViewBag.PoliclinicId&doctorId=@ViewBag.DoctorId&time=' + $(this).attr('id');
         });
     })
 </script>

@@ -1,93 +1,17 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<input type="hidden" id="policlinicId" value="@ViewBag.PoliclinicId"/>
-
+<input type="hidden" id="policlinicId" value="@ViewBag.PoliclinicId" />
 <h2>Заказ талона</h2>
-
 <p id="backButton" style="display: none;">Предыдущий шаг</p>
-
-<div id="step0" class="stepDiv">
-    <h3>Специализация</h3>
-    <p class="specialization" id="1">Ортопед</p>
-    <p class="specialization" id="2">Педиатр</p>
-</div>
-
-
-@*<script>
-    $(document).ready(function() {
-        var stepId = 0;
-        $("#backButton").click(function() {
-            decrementStep();
-            $(".specialization").hide();
-            $("#step" + stepId).show();
-        });
-
-        $(".specialization").click(function() {
-            $.ajax({
-                type: "GET",
-                url: '/Doctor/GetDoctorsBySpecializationIdAndPoliclinicId?specializationId=' + $(this).attr("id") + '&policlinicId=' + $("#policlinicId").val(),
-                success: function (result) {
-                    
-                    html = "<ul>";
-                    for (var i = 0; i < result.length; i++) {
-                        html += '<li class="doctor" id="' + result[i].DoctorId + '">' + result[i].Fio + "</li>";
-                    }
-                    html += "</ul>";
-                    displayStepBody(html);
-                    incrementStep();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-
-                }
-            });
-        });
-
-        $(".doctor").click(function () {
-            $.ajax({
-                type: "GET",
-                url: '/Talon/GetTalonsByDoctorId?doctorId=' + $(this).attr("id"),
-                success: function (result) {
-                    html = "<ul>";
-                    for (var i = 0; i < result.length; i++) {
-                        html += '<li class="talonDate" id="' + result[i].TalonId + '">' + result[i].DateToShow + "</li>";
-                    }
-                    html += "</ul>";
-                    displayStepBody(html);
-                    incrementStep();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-
-                }
-            });
-        });
-
-        function incrementStep() {
-            stepId++;
-            if (stepId == 1) {
-                $("#backButton").show();
-            }
-        }
-
-        function decrementStep() {
-            if (stepId == 0) {
-                $("#backButton").hide();
-                return;
-            }
-            stepId--;
-        }
-
-        function displayStepBody(result) {
-            $("#step" + ++stepId).html(result);
-            $(".specialization").hide();
-            $("#step" + stepId).show();
-        }
-    });
-</script>*@
-
+<h3>Специализация</h3>
+<ul class="flex-list orange">
+    @for (var i = 0; i < ViewBag.Specializations.Count; i++)
+    {
+        <li class="specialization" id="@ViewBag.Specializations[i].SpecializationId">@ViewBag.Specializations[i].Name</li>
+    }
+</ul>
 
 <script>
     $(".specialization").click(function () {
