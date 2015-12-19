@@ -1,7 +1,8 @@
 ﻿@{
-    ViewBag.Title = "OrderStep3";
+    ViewBag.Title = "Время записи";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2 class="page-title">Время записи</h2>
 <table class="table table-hover orange">
     @foreach (var hour in (Dictionary<int, List<DateTime>>)ViewBag.Times)
     {
