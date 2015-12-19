@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Поликлиника # @ViewBag.PoliclinicId</h2>
+<h2 class="page-title">Выберите действие</h2>
+<h4>Поликлиника # @ViewBag.PoliclinicId</h4>
 <div class="polyclinic-action-container">
 <div class="polyclinic-action green">
     <a href="@Url.Action("Index", "TalonOrder", new {policlinicId = ViewBag.PoliclinicId})">Заказ талона</a>

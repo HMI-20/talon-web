@@ -136,3 +136,17 @@ table.orange a {
 .polyclinic-action * {
     color: #000;
 }
+
+.history-table {
+    margin: 0 auto;
+}
+
+.history-table tr > *{
+    padding: 10px;
+    border: 1px dashed #000;
+    text-align: left;
+}
+
+.page-title {
+    margin-bottom: 50px;
+}
