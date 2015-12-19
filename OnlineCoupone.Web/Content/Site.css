@@ -150,3 +150,7 @@ table.orange a {
 .page-title {
     margin-bottom: 50px;
 }
+
+.darker-green {
+    background-color: #3b5f41;
+}

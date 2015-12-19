@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HomeVisitHistory</h2>
+<h2 class="page-title">HomeVisitHistory</h2>
 
-<a href="@Url.Action("History", "MyTalon", new { policlinicId = ViewBag.PoliclinicId, patientId = ViewBag.PatientId }) " class=" btn btn-primary">История заказов талонов</a>
-<a disabled class="btn btn-primary">История вызова врача</a>
+<a href="@Url.Action("History", "MyTalon", new { policlinicId = ViewBag.PoliclinicId, patientId = ViewBag.PatientId }) " class=" btn green">История заказов талонов</a>
+<a disabled class="btn darker-green">История вызова врача</a>
 
-<table class="table table-hover">
+<table class="table table-hover orange">
     @for (var i = 0; i < ViewBag.Histories.Count; i++)
     {
         <tr>
