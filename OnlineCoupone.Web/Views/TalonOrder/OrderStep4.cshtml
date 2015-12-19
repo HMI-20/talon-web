@@ -67,7 +67,7 @@
                 contentType: 'application/json',
                 success: function (result) {
                     if (result == '-1') {
-                        alert("СОСИ");
+                        alert("Отсутствует такой пользователь!");
                     } else {
                         window.location = '/talonorder/orderstep5?orderId=' + result;
                     }

@@ -13,6 +13,7 @@ namespace OnlineCoupone.Web.Controllers
         {
             ViewBag.RegionId = regionId;
             var repository = new Repository();
+            ViewBag.Region = repository.GetRegionById(regionId);
             ViewBag.Policlinics = repository.GetPoliclinicsByRegionId(regionId);
             return View();
         }

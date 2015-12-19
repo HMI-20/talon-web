@@ -74,7 +74,7 @@
                 contentType: 'application/json',
                 success: function (result) {
                     if (result == '-1') {
-                        alert("СОСИ");
+                        alert("Отсутствует такой пользователь!");
                     } else {
                         window.location = '/myTalon/history?policlinicId=@ViewBag.PoliclinicId&patientId=' + result;
                     }
