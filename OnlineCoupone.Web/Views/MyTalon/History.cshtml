@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>History</h2>
+
+<a disabled class="btn btn-primary">История заказов талонов</a>
+<a href="@Url.Action("HomeVisitHistory", "MyTalon", new {policlinicId = ViewBag.PoliclinicId, patientId = ViewBag.PatientId})" class="btn btn-primary">История вызова врача</a>
+
+<table class="table table-hover">
+    @for (var i = 0; i < ViewBag.Histories.Count; i++)
+    {
+        <tr>
+            <td>@ViewBag.Histories[i].Doctor.Fio</td>
+            <td>@ViewBag.Histories[i].Doctor.Specialization.Name</td>
+            <td>@ViewBag.Histories[i].AvailableTime.Time</td>
+            <td><a href="@Url.Action("CancelOrder", "MyTalon", new { policlinicId = ViewBag.PoliclinicId, patientId = ViewBag.PatientId, visitHistoryId = ViewBag.Histories[i].VisitHistoryId })" class="btn btn-sm btn-danger">Cancel</a></td>
+        </tr>
+    }
+</table>
+

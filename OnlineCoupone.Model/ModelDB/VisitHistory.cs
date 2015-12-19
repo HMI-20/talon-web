@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OnlineCoupone.Model.ModelDB
 {
-    public class AvailableTime
+    public class VisitHistory
     {
-        public int AvailableTimeId { get; set; }
-        public Doctor Doctor { get; set; }
+        public int VisitHistoryId { get; set; }
         public Patient Patient { get; set; }
-        public DateTime Time { get; set; }
+        public Doctor Doctor { get; set; }
+        public AvailableTime AvailableTime { get; set; }
     }
 }

@@ -195,6 +195,10 @@
     <Content Include="Views\TalonOrder\OrderStep2.cshtml" />
     <Content Include="Views\TalonOrder\OrderStep4.cshtml" />
     <Content Include="Views\TalonOrder\OrderStep5.cshtml" />
+    <Content Include="Views\MyTalon\History.cshtml" />
+    <Content Include="Views\MyTalon\HomeVisitHistory.cshtml" />
+    <Content Include="Views\TalonOrder\HomeOrder.cshtml" />
+    <Content Include="Views\TalonOrder\HomeOrderSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

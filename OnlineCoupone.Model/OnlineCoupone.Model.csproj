@@ -41,10 +41,12 @@
   <ItemGroup>
     <Compile Include="ModelDB\AvailableTime.cs" />
     <Compile Include="ModelDB\Doctor.cs" />
+    <Compile Include="ModelDB\HomeVisitHistory.cs" />
     <Compile Include="ModelDB\Patient.cs" />
     <Compile Include="ModelDB\Policlinic.cs" />
     <Compile Include="ModelDB\Region.cs" />
     <Compile Include="ModelDB\Specialization.cs" />
+    <Compile Include="ModelDB\VisitHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -78,8 +78,23 @@ namespace OnlineCoupone.Web.Controllers
 
         public ActionResult OrderStep5(int orderId)
         {
+            var repository = new Repository();
+            var order = repository.GetVisitHistoryById(orderId);
+            ViewBag.Order = order;
             return View();
         }
 
+        public ActionResult HomeOrder(int policlinicId)
+        {
+            ViewBag.PoliclinicId = policlinicId;
+            return View();
+        }
+
+        public ActionResult HomeOrderSuccess(int orderId)
+        {
+            ViewBag.OrderId = orderId;
+            ViewBag.HomeVisitHistory = new Repository().GetHomeVisitHistoryById(orderId);
+            return View();
+        }
     }
 }

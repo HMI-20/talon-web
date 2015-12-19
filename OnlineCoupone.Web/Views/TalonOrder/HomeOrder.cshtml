@@ -1,11 +1,8 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Мои талоны";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Index</h2>
-
 @{
     ViewBag.Title = "OrderStep4";
 }
@@ -69,14 +66,14 @@
             patient.Address = $("#address").val();
             $.ajax({
                 type: 'POST',
-                url: '/Validate/ValidateUser',
-                data: JSON.stringify({ 'patient': patient}),
+                url: '/Validate/ValidateHomeOrder',
+                data: JSON.stringify({ 'patient': patient, date: new Date(), policlinicId: '@ViewBag.PoliclinicId'}),
                 contentType: 'application/json',
                 success: function (result) {
                     if (result == '-1') {
                         alert("СОСИ");
                     } else {
-                        window.location = '/myTalon/history?policlinicId=@ViewBag.PoliclinicId&patientId=' + result;
+                        window.location = '/talonOrder/homeOrderSuccess?orderId=' + result;
                     }
                 },
                 error: function (error) {
